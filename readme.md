@@ -9,7 +9,7 @@
 - José Bernardo Barquero Bonilla (2023150476)
 - Adrian Muñoz Alvarado ()
 - Sergio Salazar Nuñez ()
-- Alejandro Solis Bolaños
+- Alejandro Solis Bolaños ()
 
 #### Profesor
 
