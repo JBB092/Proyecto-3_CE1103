@@ -7,9 +7,9 @@
 #### Estudiantes
 
 - José Bernardo Barquero Bonilla (2023150476)
-- Adrian Muñoz Alvarado ()
+- Adrian Muñoz Alvarado (2023207992)
 - Sergio Salazar Nuñez (2022155923)
-- Alejandro Solis Bolaños ()
+- Alejandro Solis Bolaños (2020204991)
 
 #### Profesor
 
