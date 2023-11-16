@@ -8,6 +8,12 @@
     android:padding="16dp"
     tools:context=".RegisterActivity">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarRegister"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary" />
+
     <!-- Campo de texto para el nombre -->
     <EditText
         android:id="@+id/editTextNombre"
@@ -49,6 +55,3 @@
         android:layout_height="wrap_content"
         android:text="Crear Cuenta" />
 </LinearLayout>
-
-
-

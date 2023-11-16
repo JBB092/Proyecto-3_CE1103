@@ -1,12 +1,14 @@
 package com.example.clientmobileapp;
 
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 public class LogginActivity extends AppCompatActivity {
 
@@ -17,6 +19,11 @@ public class LogginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.loggin_screen);
+
+        // Configurar el Toolbar
+        Toolbar toolbar = findViewById(R.id.toolbarLoggin);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         // Inicializar vistas
         editTextCarnet = findViewById(R.id.editTextCarnet);
@@ -36,5 +43,14 @@ public class LogginActivity extends AppCompatActivity {
             }
         });
     }
-}
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Manejar la acción de la flecha de retorno
+        if (item.getItemId() == android.R.id.home) {
+            onBackPressed();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+}
