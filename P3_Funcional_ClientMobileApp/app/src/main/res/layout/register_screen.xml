@@ -8,6 +8,18 @@
     android:padding="16dp"
     tools:context=".RegisterActivity">
 
+    <!-- Campo de texto para el nombre -->
+    <EditText
+        android:id="@+id/editTextNombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="16dp"
+        android:hint="Nombre"
+        android:inputType="text"
+        android:minHeight="48dp"
+        />
+
     <!-- Campo de texto para el número de carnet -->
     <EditText
         android:id="@+id/editTextCarnet"
@@ -37,5 +49,6 @@
         android:layout_height="wrap_content"
         android:text="Crear Cuenta" />
 </LinearLayout>
+
 
 
