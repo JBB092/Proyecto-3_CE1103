@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="16dp"
+    tools:context=".RegisterActivity">
+
+    <!-- Campo de texto para el número de carnet -->
+    <EditText
+        android:id="@+id/editTextCarnet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:hint="Número de Carnet"
+        android:inputType="text"
+        android:minHeight="48dp"
+        />
+
+    <!-- Campo de texto para el lugar de residencia -->
+    <EditText
+        android:id="@+id/editTextResidencia"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:hint="Lugar de Residencia"
+        android:inputType="text"
+        android:minHeight="48dp"
+        />
+
+    <!-- Botón para crear la cuenta -->
+    <Button
+        android:id="@+id/buttonCrearCuenta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Crear Cuenta" />
+</LinearLayout>
+
+
