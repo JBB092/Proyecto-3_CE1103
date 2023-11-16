@@ -27,14 +27,18 @@ public class RegisterActivity extends AppCompatActivity {
         buttonCrearCuenta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Obtener el texto de los campos de texto
-                String carnet = editTextCarnet.getText().toString();
-                String residencia = editTextResidencia.getText().toString();
+                try {
+                    // Obtener el texto de los campos de texto
+                    String carnet = editTextCarnet.getText().toString();
+                    String residencia = editTextResidencia.getText().toString();
 
-                // Lógica necesaria para crear la cuenta
-                // Mensaje con la información ingresada
-                String mensaje = "Registrando cuenta\nCarnet: " + carnet + "\nResidencia: " + residencia;
-                Toast.makeText(RegisterActivity.this, mensaje, Toast.LENGTH_LONG).show();
+                    // Lógica necesaria para crear la cuenta
+                    // Mensaje con la información ingresada
+                    String mensaje = "Registrando cuenta\nCarnet: " + carnet + "\nResidencia: " + residencia;
+                    Toast.makeText(RegisterActivity.this, mensaje, Toast.LENGTH_LONG).show();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         });
     }
