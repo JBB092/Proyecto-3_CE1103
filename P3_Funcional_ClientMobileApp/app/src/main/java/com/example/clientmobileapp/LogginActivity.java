@@ -13,6 +13,7 @@ import androidx.appcompat.widget.Toolbar;
 public class LogginActivity extends AppCompatActivity {
 
     private EditText editTextCarnet;
+    private EditText editTextNombre;
     private Button buttonIniciarSesion;
 
     @Override
@@ -27,6 +28,7 @@ public class LogginActivity extends AppCompatActivity {
 
         // Inicializar vistas
         editTextCarnet = findViewById(R.id.editTextCarnet);
+        editTextNombre = findViewById(R.id.editTextNombre);
         buttonIniciarSesion = findViewById(R.id.buttonIniciarSesion);
 
         // Configurar clic en el botón "Iniciar Sesión"
@@ -36,9 +38,24 @@ public class LogginActivity extends AppCompatActivity {
                 // Obtener el número de carnet ingresado
                 String carnet = editTextCarnet.getText().toString();
 
+                // Validar que el carnet solo contiene números
+                if (!isValidCarnet(carnet)) {
+                    Toast.makeText(LogginActivity.this, "El carnet solo debe contener números", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                // Obtener el nombre ingresado
+                String nombre = editTextNombre.getText().toString();
+
+                // Validar que el nombre solo contiene letras
+                if (!isValidName(nombre)) {
+                    Toast.makeText(LogginActivity.this, "El nombre solo debe contener letras", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 // Realizar la lógica necesaria para iniciar sesión
                 // En este ejemplo, simplemente mostramos un mensaje con el número de carnet
-                String mensaje = "Iniciando sesión con Carnet: " + carnet;
+                String mensaje = "Iniciando sesión con Carnet: " + carnet + "\nNombre: " + nombre;
                 Toast.makeText(LogginActivity.this, mensaje, Toast.LENGTH_SHORT).show();
             }
         });
@@ -52,5 +69,15 @@ public class LogginActivity extends AppCompatActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    // Método para validar que el carnet solo contiene números
+    private boolean isValidCarnet(String carnet) {
+        return carnet.matches("[0-9]+");
+    }
+
+    // Método para validar que el nombre solo contiene letras
+    private boolean isValidName(String name) {
+        return name.matches("[a-zA-Z]+");
     }
 }

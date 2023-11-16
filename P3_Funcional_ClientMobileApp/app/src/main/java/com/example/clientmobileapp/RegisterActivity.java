@@ -42,6 +42,24 @@ public class RegisterActivity extends AppCompatActivity {
                     String carnet = editTextCarnet.getText().toString();
                     String residencia = editTextResidencia.getText().toString();
 
+                    // Validar que el nombre solo contiene letras
+                    if (!isValidName(nombre)) {
+                        Toast.makeText(RegisterActivity.this, "El nombre solo debe contener letras", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+
+                    // Validar que el carnet solo contiene números
+                    if (!isValidCarnet(carnet)) {
+                        Toast.makeText(RegisterActivity.this, "El carnet solo debe contener números", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+
+                    // Validar que la residencia solo contiene letras
+                    if (!isValidResidencia(residencia)) {
+                        Toast.makeText(RegisterActivity.this, "La residencia solo debe contener letras", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+
                     // Lógica necesaria para crear la cuenta
                     // Mensaje con la información ingresada
                     String mensaje = "Registrando cuenta\nNombre: " + nombre + "\nCarnet: " + carnet + "\nResidencia: " + residencia;
@@ -61,5 +79,20 @@ public class RegisterActivity extends AppCompatActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    // Método para validar que el nombre solo contiene letras
+    private boolean isValidName(String name) {
+        return name.matches("[a-zA-Z]+");
+    }
+
+    // Método para validar que el carnet solo contiene números
+    private boolean isValidCarnet(String carnet) {
+        return carnet.matches("[0-9]+");
+    }
+
+    // Método para validar que la residencia solo contiene letras
+    private boolean isValidResidencia(String residencia) {
+        return residencia.matches("[a-zA-Z]+");
     }
 }
