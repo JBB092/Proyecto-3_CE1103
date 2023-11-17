@@ -95,22 +95,22 @@ public class AddFriendsActivity extends AppCompatActivity {
         // Get the message from the input field
         String mensaje = editTextMensaje.getText().toString();
 
-        // Validar que el mensaje no esté vacío
+        // Validate that the message is not empty
         if (mensaje.isEmpty()) {
-            Toast.makeText(this, "El mensaje no puede estar vacío", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "The message cannot be empty", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        // Validar que el mensaje no contenga números ni caracteres especiales
-        if (!esMensajeValido(mensaje)) {
-            Toast.makeText(this, "El mensaje no puede contener números ni caracteres especiales", Toast.LENGTH_SHORT).show();
+        // Validate that the message does not contain numbers or special characters
+        if (!isMessageValid(mensaje)) {
+            Toast.makeText(this, "The message cannot contain numbers or special characters", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        // Crear el objeto JSON
+        // Create the JSON object
         JSONObject jsonObject = new JSONObject();
         try {
-            // Agregar valores al objeto JSON
+            // Add values to the JSON object
             jsonObject.put("message", "addfriend");
             jsonObject.put("nombre", nombre);
             jsonObject.put("carnet", carnet);
@@ -120,12 +120,17 @@ public class AddFriendsActivity extends AppCompatActivity {
         }
 
         // Display a toast indicating that the request has been sent
-        Toast.makeText(this, "Solicitud de amistad enviada", Toast.LENGTH_SHORT).show();
-        
+        Toast.makeText(this, "Friend request sent", Toast.LENGTH_SHORT).show();
+
+        // Optionally, you can use the JSON object (jsonObject) as needed
+        // For example, you can send it through a network request
+
+        // Optionally, navigate to another screen or finish this activity
+        // Add your navigation logic here
     }
 
-    // Método para validar que el mensaje no contenga números ni caracteres especiales
-    private boolean esMensajeValido(String mensaje) {
+    // Method to validate that the message does not contain numbers or special characters
+    private boolean isMessageValid(String mensaje) {
         return mensaje.matches("[a-zA-Z\\s]+");
     }
 }
