@@ -10,6 +10,9 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 /**
  * AddFriendsActivity represents the screen to send friend requests.
  *
@@ -92,13 +95,37 @@ public class AddFriendsActivity extends AppCompatActivity {
         // Get the message from the input field
         String mensaje = editTextMensaje.getText().toString();
 
-        // Perform the action of sending friend request with the provided message
-        // Add your logic here
+        // Validar que el mensaje no esté vacío
+        if (mensaje.isEmpty()) {
+            Toast.makeText(this, "El mensaje no puede estar vacío", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        // Validar que el mensaje no contenga números ni caracteres especiales
+        if (!esMensajeValido(mensaje)) {
+            Toast.makeText(this, "El mensaje no puede contener números ni caracteres especiales", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        // Crear el objeto JSON
+        JSONObject jsonObject = new JSONObject();
+        try {
+            // Agregar valores al objeto JSON
+            jsonObject.put("message", "addfriend");
+            jsonObject.put("nombre", nombre);
+            jsonObject.put("carnet", carnet);
+            jsonObject.put("friend", mensaje);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
 
         // Display a toast indicating that the request has been sent
         Toast.makeText(this, "Solicitud de amistad enviada", Toast.LENGTH_SHORT).show();
+        
+    }
 
-        // Optionally, navigate to another screen or finish this activity
-        // Add your navigation logic here
+    // Método para validar que el mensaje no contenga números ni caracteres especiales
+    private boolean esMensajeValido(String mensaje) {
+        return mensaje.matches("[a-zA-Z\\s]+");
     }
 }
