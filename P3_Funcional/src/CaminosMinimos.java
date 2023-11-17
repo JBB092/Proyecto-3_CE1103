@@ -1,6 +1,16 @@
 public class CaminosMinimos {
     //Metodo para determinar todos los caminos Floyd
     public String algoritmoFloyd(long [][] matrizAdj){
+        String[] cantones = {
+                "San José", "Escazú", "Desamparados", "Puriscal", "Tarrazú",
+                "Aserrí", "Mora", "Goicoechea", "Santa Ana", "Alajuelita",
+                "Vázquez de Coronado", "Acosta", "Tibás", "Moravia", "Montes de Oca",
+                "Turrubares", "Dota", "Curridabat", "Pérez Zeledón", "Empresa",
+                "Heredia", "Barva", "Santo Domingo", "Santa Bárbara", "San Rafael",
+                "San Isidro", "Belén", "Flores", "San Pablo", "Sarapiquí",
+                "Alajuela", "San Ramón", "Grecia", "San Mateo", "Atenas",
+                "Naranjo", "Palmares", "Poás", "Orotina", "San Carlos", "Los Chiles"
+        };
         int vertices= matrizAdj.length;
         long matrizpesos[][]=matrizAdj;
         String caminos[][]=new String[vertices][vertices];
@@ -45,12 +55,12 @@ public class CaminosMinimos {
         ///////////////
         for (i=0;i<vertices;i++){
             for (j=0;j<vertices;j++){
-                if (matrizAdj[i][j]!=1000000000) {
-                    if(i!=j){
+                if (matrizAdj[i][j]!=1000) {
+                    if(i!=j) {
                         if (caminos[i][j].equals("")){
-                            caminitos+="De ("+(i+1)+"------>"+(j+1)+") Irse Por....("+(i+1)+", "+(j+1)+")\n";
+                            caminitos+="De ("+cantones[i]+"------>"+cantones[j]+") Irse Por....("+cantones[i]+", "+cantones[j]+")\n";
                         }else {
-                            caminitos+="De ("+(i+1)+"------>"+(j+1)+") Irse Por....("+(i+1)+", "+caminos[i][j]+", "+(j+1)+")\n";
+                            caminitos+="De ("+cantones[i]+"------>"+cantones[j]+") Irse Por....("+cantones[i]+", "+obtenerCantones(caminos[i][j])+", "+cantones[j]+")\n";
                         }
                     }
                 }
@@ -67,4 +77,56 @@ public class CaminosMinimos {
             return caminRecorrido;
         }
     }
+
+    public static String obtenerCantones(String entrada) {
+        StringBuilder resultado = new StringBuilder();
+
+
+        String[] posiciones = entrada.split(",\\s*");
+
+
+        for (String posicion : posiciones) {
+            try {
+
+                int indice = Integer.parseInt(posicion);
+
+
+                String canton = obtenerCantonPorIndice(indice);
+
+
+                resultado.append(canton).append(", ");
+            } catch (NumberFormatException e) {
+
+                System.err.println("Error: La posición '" + posicion + "' no es un número válido.");
+            }
+        }
+
+
+        if (resultado.length() > 0) {
+            resultado.setLength(resultado.length() - 2);
+        }
+
+        return resultado.toString();
+    }
+
+
+    private static String obtenerCantonPorIndice(int indice) {
+
+        String[] cantones = {
+                "San José", "Escazú", "Desamparados", "Puriscal", "Tarrazú",
+                "Aserrí", "Mora", "Goicoechea", "Santa Ana", "Alajuelita",
+                "Vázquez de Coronado", "Acosta", "Tibás", "Moravia", "Montes de Oca",
+                "Turrubares", "Dota", "Curridabat", "Pérez Zeledón", "León Cortés",
+                "Heredia", "Barva", "Santo Domingo", "Santa Bárbara", "San Rafael",
+                "San Isidro", "Belén", "Flores", "San Pablo", "Sarapiquí",
+                "Alajuela", "San Ramón", "Grecia", "San Mateo", "Atenas",
+                "Naranjo", "Palmares", "Poás", "Orotina", "San Carlos"
+        };
+
+
+        int indiceAjustado = Math.max(0, Math.min(indice, cantones.length - 1));
+
+        return cantones[indiceAjustado];
+    }
+
 }
