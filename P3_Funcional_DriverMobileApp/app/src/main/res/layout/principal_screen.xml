@@ -26,20 +26,20 @@
         android:text="Amigos" />
 
     <Button
-        android:id="@+id/buttonSolicitarServicio"
+        android:id="@+id/buttonIniciarViaje"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/buttonAmigos"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="32dp"
         android:layout_marginBottom="16dp"
-        android:text="Solicitar Servicio" />
+        android:text="Iniciar Viaje" />
 
     <Button
         android:id="@+id/buttonCalificacion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/buttonSolicitarServicio"
+        android:layout_below="@+id/buttonIniciarViaje"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="32dp"
         android:text="Calificación" />

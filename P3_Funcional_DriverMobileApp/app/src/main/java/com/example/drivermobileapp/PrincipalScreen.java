@@ -53,7 +53,7 @@ public class PrincipalScreen extends AppCompatActivity {
         // Initialize buttons and set click listeners
 
         Button buttonAmigos = findViewById(R.id.buttonAmigos);
-        Button buttonSolicitarServicio = findViewById(R.id.buttonSolicitarServicio);
+        Button buttonIniciarViaje = findViewById(R.id.buttonIniciarViaje);
         Button buttonCalificacion = findViewById(R.id.buttonCalificacion);
         Button buttonCerrarSesion = findViewById(R.id.buttonCerrarSesion);
 
@@ -69,7 +69,7 @@ public class PrincipalScreen extends AppCompatActivity {
             }
         });
 
-        buttonSolicitarServicio.setOnClickListener(new View.OnClickListener() {
+        buttonIniciarViaje.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // Navigate to ServiceActivity and pass user data
@@ -84,14 +84,14 @@ public class PrincipalScreen extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // Logic for the "Grades" button
-                /*Intent intent = new Intent(PrincipalScreen.this, GradeActivity.class);
+                Intent intent = new Intent(PrincipalScreen.this, GradeActivity.class);
 
                 // Puts additional data into the Intent
                 intent.putExtra("carnet", carnet);
                 intent.putExtra("nombre", nombre);
 
                 //Initialize the activity GradeActivity
-                startActivity(intent);*/
+                startActivity(intent);
             }
         });
 
