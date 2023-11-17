@@ -1,5 +1,6 @@
 package com.example.clientmobileapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -104,6 +105,11 @@ public class RegisterActivity extends AppCompatActivity {
                     try (FileWriter fileWriter = new FileWriter(jsonFile)) {
                         fileWriter.write(jsonObject.toString());
                         Toast.makeText(RegisterActivity.this, "Data saved to registration.json", Toast.LENGTH_LONG).show();
+
+                        // Navigate back to the main activity
+                        Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+                        startActivity(intent);
+                        finish(); // Close the current activity
                     } catch (IOException e) {
                         e.printStackTrace();
                         Toast.makeText(RegisterActivity.this, "Error saving data", Toast.LENGTH_SHORT).show();
