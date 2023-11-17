@@ -32,6 +32,7 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText editTextNombre;
     private EditText editTextCarnet;
     private Spinner spinnerResidencia;
+    private Boolean isDriver;
 
     /**
      * Called when the activity is starting.
@@ -111,14 +112,16 @@ public class RegisterActivity extends AppCompatActivity {
                 }
 
                 String residenciaSeleccionada = spinnerResidencia.getSelectedItem().toString();
+                isDriver=Boolean.FALSE;
                 // Create a JSON object with the validated data
                 JSONObject jsonObject = new JSONObject();
                 try {
                     jsonObject.put("message","register");
+                    jsonObject.put("bool",isDriver);
                     jsonObject.put("nombre", nombre);
                     jsonObject.put("carnet", carnet);
                     jsonObject.put("residencia", residenciaSeleccionada);
-                    
+
                     Toast.makeText(RegisterActivity.this, "Data sended", Toast.LENGTH_LONG).show();
 
                     // Navigate back to the main activity
