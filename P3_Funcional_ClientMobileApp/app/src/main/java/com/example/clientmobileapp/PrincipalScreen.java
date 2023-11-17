@@ -79,11 +79,11 @@ public class PrincipalScreen extends AppCompatActivity {
                 // Logic for the "Grades" button
                 Intent intent = new Intent(PrincipalScreen.this, GradeActivity.class);
 
-                // Poner datos adicionales en el Intent
+                // Puts additional data into the Intent
                 intent.putExtra("carnet", carnet);
                 intent.putExtra("nombre", nombre);
 
-                // Iniciar la actividad GradeActivity
+                //Initialize the activity GradeActivity
                 startActivity(intent);
             }
         });
