@@ -1,7 +1,7 @@
 package com.example.clientmobileapp;
 
 import android.os.Bundle;
-import android.util.Log;
+import android.content.Intent;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -88,13 +88,11 @@ public class LogginActivity extends AppCompatActivity {
                     Toast.makeText(LogginActivity.this, "Error saving data", Toast.LENGTH_SHORT).show();
                 }
 
-                // Log the created JSON object
-                Log.d("JSON", "Created JSON object: " + jsonObject.toString());
+                // Navigate to PrincipalScreen
+                Intent intent = new Intent(LogginActivity.this, PrincipalScreen.class);
+                startActivity(intent);
+                finish(); // Optional: Close the LogginActivity after navigating to PrincipalScreen
 
-                // Perform the necessary logic to log in
-                // In this example, display a toast message with the student ID and name
-                //String mensaje = "Logging in with Student ID: " + carnet + "\nName: " + nombre;
-                //Toast.makeText(LogginActivity.this, mensaje, Toast.LENGTH_SHORT).show();
             }
         });
     }
