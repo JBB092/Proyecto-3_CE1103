@@ -49,7 +49,7 @@ public class AddFriendsActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         // Initialize views
-        textViewAddFriends = findViewById(R.id.textViewAddFriends);
+        //textViewAddFriends = findViewById(R.id.textViewAddFriends);
         editTextMensaje = findViewById(R.id.editTextMensaje);
 
         // Get data from the intent
