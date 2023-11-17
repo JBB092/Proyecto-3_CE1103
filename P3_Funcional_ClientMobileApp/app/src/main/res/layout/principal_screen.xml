@@ -6,12 +6,22 @@
     android:padding="16dp"
     tools:context=".PrincipalScreen">
 
+    <TextView
+        android:id="@+id/welcomeMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"/>
+
     <Button
         android:id="@+id/buttonAmigos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Amigos"
+        android:layout_below="@id/welcomeMessage"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"/>
 
     <Button

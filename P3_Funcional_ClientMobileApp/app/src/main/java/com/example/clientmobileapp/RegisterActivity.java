@@ -14,10 +14,6 @@ import androidx.appcompat.widget.Toolbar;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-
 /**
  * RegisterActivity represents the user registration screen.
  *
@@ -65,62 +61,52 @@ public class RegisterActivity extends AppCompatActivity {
         buttonCrearCuenta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // Get the text from the input fields
+                String nombre = editTextNombre.getText().toString();
+                String carnet = editTextCarnet.getText().toString();
+                String residencia = editTextResidencia.getText().toString();
+
+                if (nombre.isEmpty() || carnet.isEmpty() || residencia.isEmpty()){
+                    Toast.makeText(RegisterActivity.this, "Por favor, complete todos los campos", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                // Validate that the name contains only letters
+                if (!isValidName(nombre)) {
+                    Toast.makeText(RegisterActivity.this, "Name should only contain letters", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                // Validate that the ID contains only numbers
+                if (!isValidCarnet(carnet)) {
+                    Toast.makeText(RegisterActivity.this, "ID should only contain numbers", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                // Validate that the residence contains only letters
+                if (!isValidResidencia(residencia)) {
+                    Toast.makeText(RegisterActivity.this, "Residence should only contain letters", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                // Create a JSON object with the validated data
+                JSONObject jsonObject = new JSONObject();
                 try {
-                    // Get the text from the input fields
-                    String nombre = editTextNombre.getText().toString();
-                    String carnet = editTextCarnet.getText().toString();
-                    String residencia = editTextResidencia.getText().toString();
-
-                    // Validate that the name contains only letters
-                    if (!isValidName(nombre)) {
-                        Toast.makeText(RegisterActivity.this, "Name should only contain letters", Toast.LENGTH_SHORT).show();
-                        return;
-                    }
-
-                    // Validate that the student ID contains only numbers
-                    if (!isValidCarnet(carnet)) {
-                        Toast.makeText(RegisterActivity.this, "Student ID should only contain numbers", Toast.LENGTH_SHORT).show();
-                        return;
-                    }
-
-                    // Validate that the residence contains only letters
-                    if (!isValidResidencia(residencia)) {
-                        Toast.makeText(RegisterActivity.this, "Residence should only contain letters", Toast.LENGTH_SHORT).show();
-                        return;
-                    }
-
-                    // Create a JSON object with the validated data
-                    JSONObject jsonObject = new JSONObject();
+                    jsonObject.put("message","register");
                     jsonObject.put("nombre", nombre);
                     jsonObject.put("carnet", carnet);
                     jsonObject.put("residencia", residencia);
 
-                    // Get the internal storage directory for the application
-                    File internalStorageDir = getFilesDir();
+                    Toast.makeText(RegisterActivity.this, "Data sended", Toast.LENGTH_LONG).show();
 
-                    // Create a JSON file in the internal storage directory
-                    File jsonFile = new File(internalStorageDir, "registration.json");
-
-                    // Write the JSON object to the file
-                    try (FileWriter fileWriter = new FileWriter(jsonFile)) {
-                        fileWriter.write(jsonObject.toString());
-                        Toast.makeText(RegisterActivity.this, "Data saved to registration.json", Toast.LENGTH_LONG).show();
-
-                        // Navigate back to the main activity
-                        Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
-                        startActivity(intent);
-                        finish(); // Close the current activity
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                        Toast.makeText(RegisterActivity.this, "Error saving data", Toast.LENGTH_SHORT).show();
-                    }
-
-                    // Perform the necessary logic to create the account
-                    // Display a toast message with the entered information
-                    //String mensaje = "Creating account\nName: " + nombre + "\nStudent ID: " + carnet + "\nResidence: " + residencia;
-                    //Toast.makeText(RegisterActivity.this, mensaje, Toast.LENGTH_LONG).show();
+                    // Navigate back to the main activity
+                    Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+                    startActivity(intent);
+                    finish(); // Close the current activity
                 } catch (JSONException e) {
                     e.printStackTrace();
+                    Toast.makeText(RegisterActivity.this, "Error creating JSON object", Toast.LENGTH_SHORT).show();
+                    return;
                 }
             }
         });

@@ -59,19 +59,23 @@ public class LogginActivity extends AppCompatActivity {
         buttonIniciarSesion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Get the entered student ID
+                // Get the text from the input fields
                 String carnet = editTextCarnet.getText().toString();
+                String nombre = editTextNombre.getText().toString();
 
-                // Validate that the student ID contains only numbers
-                if (!isValidCarnet(carnet)) {
-                    Toast.makeText(LogginActivity.this, "Student ID should only contain numbers", Toast.LENGTH_SHORT).show();
+                // Check if any of the fields is empty
+                if (carnet.isEmpty() || nombre.isEmpty()){
+                    Toast.makeText(LogginActivity.this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
-                // Get the entered name
-                String nombre = editTextNombre.getText().toString();
+                // Validate the student ID
+                if (!isValidCarnet(carnet)) {
+                    Toast.makeText(LogginActivity.this, "ID should only contain numbers", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
-                // Validate that the name contains only letters
+                // Validate the name
                 if (!isValidName(nombre)) {
                     Toast.makeText(LogginActivity.this, "Name should only contain letters", Toast.LENGTH_SHORT).show();
                     return;
@@ -80,19 +84,27 @@ public class LogginActivity extends AppCompatActivity {
                 // Create a JSON object with the name and student ID
                 JSONObject jsonObject = new JSONObject();
                 try {
+                    jsonObject.put("message","loggin");
                     jsonObject.put("nombre", nombre);
                     jsonObject.put("carnet", carnet);
-                    Toast.makeText(LogginActivity.this, "Data saved to registration.json", Toast.LENGTH_LONG).show();
                 } catch (JSONException e) {
                     e.printStackTrace();
-                    Toast.makeText(LogginActivity.this, "Error saving data", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LogginActivity.this, "Error creating JSON object", Toast.LENGTH_SHORT).show();
+                    return;
                 }
 
-                // Navigate to PrincipalScreen
+                // Create an Intent to start PrincipalScreen
                 Intent intent = new Intent(LogginActivity.this, PrincipalScreen.class);
-                startActivity(intent);
-                finish(); // Optional: Close the LogginActivity after navigating to PrincipalScreen
 
+                // Put additional data in the Intent
+                intent.putExtra("carnet", carnet);
+                intent.putExtra("nombre", nombre);
+
+                // Start the PrincipalScreen activity
+                startActivity(intent);
+
+                // Optional: Close the current activity
+                finish();
             }
         });
     }
