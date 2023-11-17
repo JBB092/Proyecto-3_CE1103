@@ -62,10 +62,10 @@ public class PrincipalScreen extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // Navigate to FriendsActivity and pass user data
-                /*Intent intent = new Intent(PrincipalScreen.this, FriendsActivity.class);
+                Intent intent = new Intent(PrincipalScreen.this, FriendsActivity.class);
                 intent.putExtra("nombre", nombre);
                 intent.putExtra("carnet", carnet);
-                startActivity(intent);*/
+                startActivity(intent);
             }
         });
 
@@ -73,10 +73,10 @@ public class PrincipalScreen extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // Navigate to ServiceActivity and pass user data
-                /*Intent intent = new Intent(PrincipalScreen.this, ServiceActivity.class);
+                Intent intent = new Intent(PrincipalScreen.this, ServiceActivity.class);
                 intent.putExtra("nombre", nombre);
                 intent.putExtra("carnet", carnet);
-                startActivity(intent);*/
+                startActivity(intent);
             }
         });
 

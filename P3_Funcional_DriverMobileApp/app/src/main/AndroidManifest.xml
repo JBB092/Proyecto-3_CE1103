@@ -28,6 +28,8 @@
         <activity android:name=".LogginActivity" />
         <activity android:name=".PrincipalScreen" />
         <activity android:name=".GradeActivity" />
+        <activity android:name=".FriendsActivity" />
+        <activity android:name=".ServiceActivity" />
     </application>
 
 </manifest>
