@@ -57,10 +57,15 @@ public class PrincipalScreen extends AppCompatActivity {
         Button buttonCalificacion = findViewById(R.id.buttonCalificacion);
         Button buttonCerrarSesion = findViewById(R.id.buttonCerrarSesion);
 
+        // Set up click listener for "Amigos" button
         buttonAmigos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Logic for the "Friends" button
+                // Navigate to FriendsActivity and pass user data
+                Intent intent = new Intent(PrincipalScreen.this, FriendsActivity.class);
+                intent.putExtra("nombre", nombre);
+                intent.putExtra("carnet", carnet);
+                startActivity(intent);
             }
         });
 
