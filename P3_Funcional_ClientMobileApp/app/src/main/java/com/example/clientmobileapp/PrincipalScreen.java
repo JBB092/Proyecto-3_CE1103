@@ -72,7 +72,11 @@ public class PrincipalScreen extends AppCompatActivity {
         buttonSolicitarServicio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Logic for the "Request Service" button
+                // Navigate to ServiceActivity and pass user data
+                Intent intent = new Intent(PrincipalScreen.this, ServiceActivity.class);
+                intent.putExtra("nombre", nombre);
+                intent.putExtra("carnet", carnet);
+                startActivity(intent);
             }
         });
 
