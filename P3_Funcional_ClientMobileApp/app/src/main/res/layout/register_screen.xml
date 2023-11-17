@@ -38,15 +38,13 @@
         />
 
     <!-- Campo de texto para el lugar de residencia -->
-    <EditText
-        android:id="@+id/editTextResidencia"
+    <Spinner
+        android:id="@+id/spinnerResidencia"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:hint="Lugar de Residencia"
-        android:inputType="text"
-        android:minHeight="48dp"
-        />
+        android:minHeight="48dp"/>
 
     <!-- Botón para crear la cuenta -->
     <Button
