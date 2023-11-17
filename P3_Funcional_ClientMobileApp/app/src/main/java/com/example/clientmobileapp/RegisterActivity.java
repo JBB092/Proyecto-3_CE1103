@@ -17,6 +17,9 @@ import androidx.appcompat.widget.Toolbar;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 /**
  * RegisterActivity represents the user registration screen.
  *
@@ -112,15 +115,17 @@ public class RegisterActivity extends AppCompatActivity {
                 }
 
                 String residenciaSeleccionada = spinnerResidencia.getSelectedItem().toString();
-                isDriver=Boolean.FALSE;
+                isDriver=false;
                 // Create a JSON object with the validated data
                 JSONObject jsonObject = new JSONObject();
+                ArrayList amigos = new ArrayList();
                 try {
                     jsonObject.put("message","register");
                     jsonObject.put("bool",isDriver);
                     jsonObject.put("nombre", nombre);
                     jsonObject.put("carnet", carnet);
                     jsonObject.put("residencia", residenciaSeleccionada);
+                    jsonObject.put("amigos",amigos);
 
                     Toast.makeText(RegisterActivity.this, "Data sended", Toast.LENGTH_LONG).show();
 

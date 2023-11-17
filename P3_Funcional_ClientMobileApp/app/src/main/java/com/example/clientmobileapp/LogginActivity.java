@@ -74,13 +74,11 @@ public class LogginActivity extends AppCompatActivity {
                     Toast.makeText(LogginActivity.this, "ID should only contain numbers", Toast.LENGTH_SHORT).show();
                     return;
                 }
-
                 // Validate the name
                 if (!isValidName(nombre)) {
                     Toast.makeText(LogginActivity.this, "Name should only contain letters", Toast.LENGTH_SHORT).show();
                     return;
                 }
-
                 // Create a JSON object with the name and student ID
                 JSONObject jsonObject = new JSONObject();
                 try {
@@ -92,7 +90,6 @@ public class LogginActivity extends AppCompatActivity {
                     Toast.makeText(LogginActivity.this, "Error creating JSON object", Toast.LENGTH_SHORT).show();
                     return;
                 }
-
                 // Create an Intent to start PrincipalScreen
                 Intent intent = new Intent(LogginActivity.this, PrincipalScreen.class);
 

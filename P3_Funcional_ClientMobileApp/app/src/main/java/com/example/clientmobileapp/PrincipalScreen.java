@@ -43,7 +43,6 @@ public class PrincipalScreen extends AppCompatActivity {
         if (intent.hasExtra("carnet") && intent.hasExtra("nombre")) {
             carnet = intent.getStringExtra("carnet");
             nombre = intent.getStringExtra("nombre");
-
             // Update the welcome message
             TextView welcomeMessage = findViewById(R.id.welcomeMessage);
             String welcomeText = "¡Bienvenid@ " + nombre + " (" + carnet + ")!";
