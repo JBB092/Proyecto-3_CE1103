@@ -19,6 +19,10 @@ import androidx.appcompat.app.AppCompatActivity;
  */
 public class PrincipalScreen extends AppCompatActivity {
 
+    // Declarar las variables fuera del bloque if
+    private String carnet;
+    private String nombre;
+
     /**
      * Called when the activity is starting.
      *
@@ -35,11 +39,12 @@ public class PrincipalScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.principal_screen);
 
-        // Get data from the Inten
+        // Get data from the Intent
         Intent intent = getIntent();
         if (intent.hasExtra("carnet") && intent.hasExtra("nombre")) {
-            String carnet = intent.getStringExtra("carnet");
-            String nombre = intent.getStringExtra("nombre");
+            // Asignar valores a las variables
+            carnet = intent.getStringExtra("carnet");
+            nombre = intent.getStringExtra("nombre");
 
             // Update the welcome message
             TextView welcomeMessage = findViewById(R.id.welcomeMessage);
@@ -72,6 +77,14 @@ public class PrincipalScreen extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // Logic for the "Grades" button
+                Intent intent = new Intent(PrincipalScreen.this, GradeActivity.class);
+
+                // Poner datos adicionales en el Intent
+                intent.putExtra("carnet", carnet);
+                intent.putExtra("nombre", nombre);
+
+                // Iniciar la actividad GradeActivity
+                startActivity(intent);
             }
         });
 

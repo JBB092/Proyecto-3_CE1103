@@ -10,46 +10,47 @@
         android:id="@+id/welcomeMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=""
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="32dp"
+        android:text="" />
 
     <Button
         android:id="@+id/buttonAmigos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Amigos"
-        android:layout_below="@id/welcomeMessage"
+        android:layout_below="@+id/welcomeMessage"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"/>
+        android:layout_marginBottom="16dp"
+        android:text="Amigos" />
 
     <Button
         android:id="@+id/buttonSolicitarServicio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Solicitar Servicio"
-        android:layout_below="@id/buttonAmigos"
+        android:layout_below="@+id/buttonAmigos"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"/>
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="16dp"
+        android:text="Solicitar Servicio" />
 
     <Button
         android:id="@+id/buttonCalificacion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Calificación"
-        android:layout_below="@id/buttonSolicitarServicio"
+        android:layout_below="@+id/buttonSolicitarServicio"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="32dp"
+        android:text="Calificación" />
 
     <Button
         android:id="@+id/buttonCerrarSesion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Cerrar Sesión"
-        android:layout_below="@id/buttonCalificacion"
+        android:layout_below="@+id/buttonCalificacion"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="16dp"
+        android:text="Cerrar Sesión" />
 
 </RelativeLayout>
