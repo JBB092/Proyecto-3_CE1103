@@ -19,7 +19,6 @@ import androidx.appcompat.app.AppCompatActivity;
  */
 public class PrincipalScreen extends AppCompatActivity {
 
-    // Declarar las variables fuera del bloque if
     private String carnet;
     private String nombre;
 
@@ -42,7 +41,6 @@ public class PrincipalScreen extends AppCompatActivity {
         // Get data from the Intent
         Intent intent = getIntent();
         if (intent.hasExtra("carnet") && intent.hasExtra("nombre")) {
-            // Asignar valores a las variables
             carnet = intent.getStringExtra("carnet");
             nombre = intent.getStringExtra("nombre");
 
