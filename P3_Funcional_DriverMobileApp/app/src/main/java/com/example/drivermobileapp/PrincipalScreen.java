@@ -53,7 +53,8 @@ public class PrincipalScreen extends AppCompatActivity {
         // Initialize buttons and set click listeners
 
         Button buttonAmigos = findViewById(R.id.buttonAmigos);
-        Button buttonSolicitarServicio = findViewById(R.id.buttonSolicitarServicio);
+        Button buttonAnadirAmigos = findViewById(R.id.buttonAnadirAmigos);
+        Button buttonIniciarViaje = findViewById(R.id.buttonIniciarViaje);
         Button buttonCalificacion = findViewById(R.id.buttonCalificacion);
         Button buttonCerrarSesion = findViewById(R.id.buttonCerrarSesion);
 
@@ -62,21 +63,33 @@ public class PrincipalScreen extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // Navigate to FriendsActivity and pass user data
-                /*Intent intent = new Intent(PrincipalScreen.this, FriendsActivity.class);
+                Intent intent = new Intent(PrincipalScreen.this, FriendsActivity.class);
                 intent.putExtra("nombre", nombre);
                 intent.putExtra("carnet", carnet);
-                startActivity(intent);*/
+                startActivity(intent);
             }
         });
 
-        buttonSolicitarServicio.setOnClickListener(new View.OnClickListener() {
+        // Set up click listener for "Añadir Amigos" button
+        buttonAnadirAmigos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Navigate to AddFriendsActivity and pass user data
+                Intent intent = new Intent(PrincipalScreen.this, AddFriendsActivity.class);
+                intent.putExtra("nombre", nombre);
+                intent.putExtra("carnet", carnet);
+                startActivity(intent);
+            }
+        });
+
+        buttonIniciarViaje.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // Navigate to ServiceActivity and pass user data
-                /*Intent intent = new Intent(PrincipalScreen.this, ServiceActivity.class);
+                Intent intent = new Intent(PrincipalScreen.this, ServiceActivity.class);
                 intent.putExtra("nombre", nombre);
                 intent.putExtra("carnet", carnet);
-                startActivity(intent);*/
+                startActivity(intent);
             }
         });
 
@@ -84,14 +97,14 @@ public class PrincipalScreen extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // Logic for the "Grades" button
-                /*Intent intent = new Intent(PrincipalScreen.this, GradeActivity.class);
+                Intent intent = new Intent(PrincipalScreen.this, GradeActivity.class);
 
                 // Puts additional data into the Intent
                 intent.putExtra("carnet", carnet);
                 intent.putExtra("nombre", nombre);
 
-                //Initialize the activity GradeActivity
-                startActivity(intent);*/
+                // Initialize the activity GradeActivity
+                startActivity(intent);
             }
         });
 

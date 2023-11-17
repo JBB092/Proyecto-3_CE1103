@@ -14,8 +14,6 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import com.example.drivermobileapp.R;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -96,7 +94,7 @@ public class RegisterActivity extends AppCompatActivity {
                 String nombre = editTextNombre.getText().toString();
                 String carnet = editTextCarnet.getText().toString();
 
-                if (nombre.isEmpty() || carnet.isEmpty()){
+                if (nombre.isEmpty() || carnet.isEmpty()) {
                     Toast.makeText(RegisterActivity.this, "Por favor, complete todos los campos", Toast.LENGTH_SHORT).show();
                     return;
                 }
@@ -114,12 +112,12 @@ public class RegisterActivity extends AppCompatActivity {
                 }
 
                 String residenciaSeleccionada = spinnerResidencia.getSelectedItem().toString();
-                isDriver=Boolean.FALSE;
+                isDriver = true;
                 // Create a JSON object with the validated data
                 JSONObject jsonObject = new JSONObject();
                 try {
-                    jsonObject.put("message","register");
-                    jsonObject.put("bool",isDriver);
+                    jsonObject.put("message", "register");
+                    jsonObject.put("bool", isDriver);
                     jsonObject.put("nombre", nombre);
                     jsonObject.put("carnet", carnet);
                     jsonObject.put("residencia", residenciaSeleccionada);
@@ -175,15 +173,5 @@ public class RegisterActivity extends AppCompatActivity {
      */
     private boolean isValidCarnet(String carnet) {
         return carnet.matches("[0-9]+");
-    }
-
-    /**
-     * Validate that the residence contains only letters.
-     *
-     * @param residencia The entered residence.
-     * @return True if the residence is valid, false otherwise.
-     */
-    private boolean isValidResidencia(String residencia) {
-        return residencia.matches("[a-zA-Z]+");
     }
 }
