@@ -3,26 +3,25 @@ package com.example.drivermobileapp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 /**
- * ServiceActivity represents the screen to display the requested service information.
+ * AddFriendsActivity represents the screen to send friend requests.
  *
- * <p>This activity receives data (nombre and carnet) from PrincipalScreen and displays the service information.</p>
+ * <p>This activity receives data (nombre and carnet) from PrincipalScreen and displays the add friend information.</p>
  *
  * <p>Author: Jose Barquero</p>
  */
-public class ServiceActivity extends AppCompatActivity {
+public class AddFriendsActivity extends AppCompatActivity {
 
     // Views
-    private TextView textViewService;
+    private TextView textViewAddFriends;
+    private EditText editTextMensaje;
 
     // User data
     private String nombre;
@@ -42,15 +41,16 @@ public class ServiceActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.service_screen);
+        setContentView(R.layout.addfriends_screen);
 
         // Configure the Toolbar
-        Toolbar toolbar = findViewById(R.id.toolbarService);
+        Toolbar toolbar = findViewById(R.id.toolbarAddFriends);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         // Initialize views
-        textViewService = findViewById(R.id.textViewService);
+        textViewAddFriends = findViewById(R.id.textViewAddFriends);
+        editTextMensaje = findViewById(R.id.editTextMensaje);
 
         // Get data from the intent
         Intent intent = getIntent();
@@ -58,23 +58,13 @@ public class ServiceActivity extends AppCompatActivity {
             nombre = intent.getStringExtra("nombre");
             carnet = intent.getStringExtra("carnet");
 
-            JSONObject jsonObject = new JSONObject();
-            try {
-                jsonObject.put("message","driveStart");
-                jsonObject.put("nombre", nombre);
-                jsonObject.put("carnet", carnet);
-
-                Toast.makeText(ServiceActivity.this, "Data sended", Toast.LENGTH_LONG).show();
-            } catch (JSONException e) {
-                e.printStackTrace();
-                Toast.makeText(ServiceActivity.this, "Error creating JSON object", Toast.LENGTH_SHORT).show();
-                return;
-            }
-
-            // Update the text view with service information
-            String serviceText = "Viaje iniciado a nombre de " + nombre + " (" + carnet + "):";
-            textViewService.setText(serviceText);
+            // Update the text view with add friend information
+            /*String addFriendsText = "Enviar solicitud de amistad con el nombre de " + nombre + " (" + carnet + "):";
+            textViewAddFriends.setText(addFriendsText);*/
         }
+
+        // Set up click listener for "Enviar Solicitud" button
+        findViewById(R.id.buttonEnviarSolicitud).setOnClickListener(view -> enviarSolicitudAmistad());
     }
 
     /**
@@ -93,5 +83,22 @@ public class ServiceActivity extends AppCompatActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    /**
+     * Method to handle the click on "Enviar Solicitud" button.
+     */
+    private void enviarSolicitudAmistad() {
+        // Get the message from the input field
+        String mensaje = editTextMensaje.getText().toString();
+
+        // Perform the action of sending friend request with the provided message
+        // Add your logic here
+
+        // Display a toast indicating that the request has been sent
+        Toast.makeText(this, "Solicitud de amistad enviada", Toast.LENGTH_SHORT).show();
+
+        // Optionally, navigate to another screen or finish this activity
+        // Add your navigation logic here
     }
 }

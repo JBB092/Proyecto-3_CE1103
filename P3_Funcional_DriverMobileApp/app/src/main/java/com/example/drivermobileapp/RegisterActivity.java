@@ -14,8 +14,6 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import com.example.drivermobileapp.R;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -114,7 +112,7 @@ public class RegisterActivity extends AppCompatActivity {
                 }
 
                 String residenciaSeleccionada = spinnerResidencia.getSelectedItem().toString();
-                isDriver=Boolean.FALSE;
+                isDriver=true;
                 // Create a JSON object with the validated data
                 JSONObject jsonObject = new JSONObject();
                 try {

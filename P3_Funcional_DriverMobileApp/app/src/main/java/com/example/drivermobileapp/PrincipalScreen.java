@@ -53,6 +53,7 @@ public class PrincipalScreen extends AppCompatActivity {
         // Initialize buttons and set click listeners
 
         Button buttonAmigos = findViewById(R.id.buttonAmigos);
+        Button buttonAnadirAmigos = findViewById(R.id.buttonAnadirAmigos);
         Button buttonIniciarViaje = findViewById(R.id.buttonIniciarViaje);
         Button buttonCalificacion = findViewById(R.id.buttonCalificacion);
         Button buttonCerrarSesion = findViewById(R.id.buttonCerrarSesion);
@@ -63,6 +64,18 @@ public class PrincipalScreen extends AppCompatActivity {
             public void onClick(View view) {
                 // Navigate to FriendsActivity and pass user data
                 Intent intent = new Intent(PrincipalScreen.this, FriendsActivity.class);
+                intent.putExtra("nombre", nombre);
+                intent.putExtra("carnet", carnet);
+                startActivity(intent);
+            }
+        });
+
+        // Set up click listener for "Añadir Amigos" button
+        buttonAnadirAmigos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Navigate to AddFriendsActivity and pass user data
+                Intent intent = new Intent(PrincipalScreen.this, AddFriendsActivity.class);
                 intent.putExtra("nombre", nombre);
                 intent.putExtra("carnet", carnet);
                 startActivity(intent);
@@ -90,7 +103,7 @@ public class PrincipalScreen extends AppCompatActivity {
                 intent.putExtra("carnet", carnet);
                 intent.putExtra("nombre", nombre);
 
-                //Initialize the activity GradeActivity
+                // Initialize the activity GradeActivity
                 startActivity(intent);
             }
         });

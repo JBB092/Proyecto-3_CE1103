@@ -26,10 +26,20 @@
         android:text="Amigos" />
 
     <Button
-        android:id="@+id/buttonIniciarViaje"
+        android:id="@+id/buttonAnadirAmigos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/buttonAmigos"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="Añadir Amigos" />
+
+    <Button
+        android:id="@+id/buttonIniciarViaje"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/buttonAnadirAmigos"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="32dp"
         android:layout_marginBottom="16dp"
