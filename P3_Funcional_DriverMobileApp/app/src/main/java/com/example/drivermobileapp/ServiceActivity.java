@@ -3,6 +3,8 @@ package com.example.drivermobileapp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.CompoundButton;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,10 +25,13 @@ public class ServiceActivity extends AppCompatActivity {
 
     // Views
     private TextView textViewService;
+    private Switch switchTravelWithFriends;
 
     // User data
     private String nombre;
     private String carnet;
+
+    private boolean travelWithFriends = false;
 
     /**
      * Called when the activity is starting.
@@ -51,6 +56,7 @@ public class ServiceActivity extends AppCompatActivity {
 
         // Initialize views
         textViewService = findViewById(R.id.textViewService);
+        switchTravelWithFriends = findViewById(R.id.switchTravelWithFriends);
 
         // Get data from the intent
         Intent intent = getIntent();
@@ -75,6 +81,15 @@ public class ServiceActivity extends AppCompatActivity {
             String serviceText = "Viaje iniciado a nombre de " + nombre + " (" + carnet + "):";
             textViewService.setText(serviceText);
         }
+
+        /// Add listener to the Switch
+        switchTravelWithFriends.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                // Update the boolean value when the Switch state changes
+                travelWithFriends = isChecked;
+            }
+        });
     }
 
     /**
